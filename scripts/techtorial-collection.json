@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "2fcb889b-ffe0-4948-b1aa-b40ecb0ae740",
+		"name": "Newman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Football: Get competitions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "c55b7a64e8424d46a52051bce36d1c0a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.football-data.org/v2/competitions",
+					"protocol": "http",
+					"host": [
+						"api",
+						"football-data",
+						"org"
+					],
+					"path": [
+						"v2",
+						"competitions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Football: Matches for 2012",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Auth-Token",
+						"value": "c55b7a64e8424d46a52051bce36d1c0a",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.football-data.org/v2/matches?season=2012",
+					"protocol": "http",
+					"host": [
+						"api",
+						"football-data",
+						"org"
+					],
+					"path": [
+						"v2",
+						"matches"
+					],
+					"query": [
+						{
+							"key": "season",
+							"value": "2012"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon: Ability",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/ability/?limit=1000",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"ability",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW: List of starships",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Starship count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.count).to.eq(36);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://swapi.dev/api/starships/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"starships",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW: List of people",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"People count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.count).to.eq(82);",
+							"});",
+							"",
+							"pm.test(\"First person name\", function(){",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results[0].name).to.eq(\"Luke Skywalker\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://swapi.dev/api/people/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SW: List of films",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://swapi.dev/api/films",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"dev"
+					],
+					"path": [
+						"api",
+						"films"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GOT: List of characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.got.show/api/show/characters",
+					"protocol": "https",
+					"host": [
+						"api",
+						"got",
+						"show"
+					],
+					"path": [
+						"api",
+						"show",
+						"characters"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GOT: Episodes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Character count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.length).to.eq(50);",
+							"});",
+							"",
+							"pm.test(\"Character count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data[1].name).eql(\"Lord Snow\");",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.got.show/api/map/episodes",
+					"protocol": "https",
+					"host": [
+						"api",
+						"got",
+						"show"
+					],
+					"path": [
+						"api",
+						"map",
+						"episodes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Football: Get competitions 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check Competition name\", function () {",
+							"    ",
+							"      var jsonData = pm.response.json();",
+							"      ",
+							"      for(var i=0; i<jsonData.competitions.length; i++)",
+							"      ",
+							"        {",
+							"             if (jsonData.competitions[i].area.name===\"Africa\"){",
+							"                    pm.expect(jsonData.competitions[i].id).to.equal(2006)",
+							"                }   ",
+							"        }",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Auth-Token",
+						"value": "c55b7a64e8424d46a52051bce36d1c0a",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.football-data.org/v2/competitions",
+					"protocol": "http",
+					"host": [
+						"api",
+						"football-data",
+						"org"
+					],
+					"path": [
+						"v2",
+						"competitions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon: type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/type/3",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"type",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pokemon: Kinds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Pokemon count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.length).to.eq(1118);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"Pokemon count expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.results.length).to.eq(jsonData.count);",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"Pikachu count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    var count=0",
+							"    for(var i=0; i<jsonData.results.length; i++)",
+							"      {",
+							"             if (jsonData.results[i].name.includes(\"pikachu\")){",
+							"                    count++",
+							"                }   ",
+							"        }",
+							"        pm.expect(count).to.eq(15)",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/?limit=1118",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1118"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dogs: Breeds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"\tpm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Status is Success\", function () {",
+							"    var jsonData = pm.response.json()",
+							"\tpm.expect(jsonData.status).eq(\"success\");",
+							"});",
+							"",
+							"pm.test(\"Dog breed count\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(Object.keys(jsonData.message).length).to.eq(94);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dog.ceo/api/breeds/list/all",
+					"protocol": "https",
+					"host": [
+						"dog",
+						"ceo"
+					],
+					"path": [
+						"api",
+						"breeds",
+						"list",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
